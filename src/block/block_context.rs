@@ -7,7 +7,7 @@ use serde_with::skip_serializing_none;
 /// Displays message context, which can include both images and text.  
 /// See: <https://api.slack.com/reference/block-kit/blocks#context>
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct ContextBlock {
     pub elements: Vec<MixedElement>,
     pub block_id: Option<String>,

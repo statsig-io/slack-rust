@@ -6,7 +6,7 @@ use serde_with::skip_serializing_none;
 /// An object containing some text, formatted either as plain_text or using mrkdwn, our proprietary contribution to the much beloved Markdown standard.  
 /// See: <https://api.slack.com/reference/block-kit/composition-objects#text>
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct TextBlockObject {
     #[serde(rename = "type")]
     pub type_filed: TextBlockType,
@@ -55,7 +55,7 @@ impl TextBlockObjectBuilder {
     }
 }
 
-#[derive(Deserialize, Serialize, Debug, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, PartialEq, Clone)]
 #[serde(rename_all = "snake_case")]
 pub enum TextBlockType {
     PlainText,
@@ -73,7 +73,7 @@ impl Default for TextBlockType {
 /// An object that represents a single selectable item in a select menu, multi-select menu, checkbox group, radio button group, or overflow menu.  
 /// See: <https://api.slack.com/reference/block-kit/composition-objects#option>
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct OptionBlockObject {
     pub text: TextBlockObject,
     pub value: Option<String>,
@@ -125,14 +125,14 @@ impl OptionBlockObjectBuilder {
 }
 
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct OptionGroupBlockObject {
     pub label: Option<TextBlockObject>,
     pub options: Option<Vec<OptionBlockObject>>,
 }
 
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct ConfirmationBlockObject {
     pub title: TextBlockObject,
     pub text: TextBlockObject,
@@ -192,7 +192,7 @@ impl ConfirmationBlockObjectBuilder {
 }
 
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct DispatchActionConfig {
     pub trigger_actions_on: Option<Vec<String>>,
 }

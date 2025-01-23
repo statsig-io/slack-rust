@@ -6,7 +6,7 @@ use serde_with::skip_serializing_none;
 /// Displays a remote file.   
 /// See: <https://api.slack.com/reference/block-kit/blocks#file>
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct FileBlock {
     pub external_id: String,
     pub source: String,

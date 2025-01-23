@@ -14,7 +14,7 @@ use serde_with::skip_serializing_none;
 
 /// Blocks are a series of components that can be combined to create visually rich and compellingly interactive messages.
 /// See: <https://api.slack.com/reference/block-kit/blocks>
-#[derive(Deserialize, Serialize, Debug, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, PartialEq, Clone)]
 #[serde(tag = "type")]
 pub enum Block {
     #[serde(rename = "actions")]

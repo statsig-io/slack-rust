@@ -8,7 +8,7 @@ use serde_with::skip_serializing_none;
 /// A section is one of the most flexible blocks available.  
 /// See: <https://api.slack.com/reference/block-kit/blocks#section>
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct SectionBlock {
     pub text: Option<TextBlockObject>,
     pub block_id: Option<String>,

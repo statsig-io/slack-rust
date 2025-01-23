@@ -7,7 +7,7 @@ use serde_with::skip_serializing_none;
 /// A simple image block, designed to make those cat photos really pop.  
 /// See: <https://api.slack.com/reference/block-kit/blocks#image>
 #[skip_serializing_none]
-#[derive(Deserialize, Serialize, Debug, Default, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, Default, PartialEq, Clone)]
 pub struct ImageBlock {
     pub image_url: String,
     pub alt_text: String,

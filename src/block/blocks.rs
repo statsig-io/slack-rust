@@ -12,6 +12,8 @@ use crate::block::block_section::SectionBlock;
 use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
+use super::block_rich_text::RichTextBlock;
+
 /// Blocks are a series of components that can be combined to create visually rich and compellingly interactive messages.
 /// See: <https://api.slack.com/reference/block-kit/blocks>
 #[derive(Deserialize, Serialize, Debug, PartialEq, Clone)]
@@ -31,6 +33,8 @@ pub enum Block {
     ImageBlock(ImageBlock),
     #[serde(rename = "input")]
     InputBlock(InputBlock),
+    #[serde(rename = "rich_text")]
+    RichTextBlock(RichTextBlock),
     #[serde(rename = "section")]
     SectionBlock(SectionBlock),
     #[serde(skip)]
@@ -47,6 +51,7 @@ impl Block {
             Block::HeaderBlock(HeaderBlock { .. }) => BlockType::Header,
             Block::ImageBlock(ImageBlock { .. }) => BlockType::Image,
             Block::InputBlock(InputBlock { .. }) => BlockType::Input,
+            Block::RichTextBlock(RichTextBlock { .. }) => BlockType::RichText,
             Block::SectionBlock(SectionBlock { .. }) => BlockType::Section,
             Block::None => BlockType::None,
         }
@@ -69,6 +74,7 @@ pub enum BlockType {
     Header,
     Image,
     Input,
+    RichText,
     Section,
     #[serde(skip)]
     None,

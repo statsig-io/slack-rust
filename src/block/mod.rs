@@ -10,4 +10,5 @@ pub mod block_image;
 pub mod block_input;
 pub mod block_object;
 pub mod block_section;
+pub mod block_rich_text;
 pub mod blocks;

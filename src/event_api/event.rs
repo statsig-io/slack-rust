@@ -186,7 +186,7 @@ pub enum EventCallback {
         inviter: String,
     },
     /// A user left a public or private channel
-    #[serde(rename = "member_joined_channel")]
+    #[serde(rename = "member_left_channel")]
     MemberLeftChannel {
         user: String,
         channel: String,
